@@ -154,25 +154,29 @@
                      <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="producto_data" width="100%" cellspacing="0">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody></tbody>
-</table>
-
+                            <!--<h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
+                            <button type="button" id="btnnuevo" class="btn btn-outline-primary btn-block mg-b-10">
+                                Nuevo Registro
+                            </button>
+        </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="producto_data" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                <th>Nombre</th>
+                                <th></th>
+                                <th></th>
+                                </tr>
+                            </thead>
+                    <tbody></tbody>
+                 </table>
             </div>
         </div>
         
     </div>
+
+    <?php require_once("modalmantenimiento.php");?>
     
 
     <!-- Scripts -->
@@ -195,9 +199,11 @@
     <script src="/mvc/public/vendor/datatables/buttons.colVis.mis.js"></script>
     <script src="/mvc/public/vendor/datatables/jszip.min.js"></script>
 
+<!-- <script src="/mvc/public/js/sweetaler.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 
-<link href="/mvc/public/css/buttons.dataTables.min.css" rel="stylesheet"> 
-  <!--<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css"> -->
+<!--<link href="/mvc/public/css/buttons.dataTables.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">  
 <link href="/mvc/public/css/all.min.css" rel="stylesheet">
 <link href="/mvc/public/css/ionicons.min.css" rel="stylesheet">
 <link href="/mvc/public/css/perfect-scrollbar.min.css" rel="stylesheet">
@@ -207,5 +213,7 @@
 
     <!-- Page level custom scripts -->
     <script src="/mvc/public/js/demo/datatables-demo.js"></script>
+   
+
 </body>
 </html>

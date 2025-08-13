@@ -23,7 +23,7 @@ class Producto extends Conectar {
     public function delete_producto($prod_id) {
         $conectar = parent::conexion();
         parent::set_names();
-        $sql = "UPDATE tm_producto SET est=0, fech_elim=now() WHERE prod_id = ?";
+        $sql = "UPDATE tm_producto SET estado=0, fech_elim=now() WHERE prod_id = ?";
         $stmt = $conectar->prepare($sql);
         $stmt->bindValue(1, $prod_id);
         $stmt->execute();
