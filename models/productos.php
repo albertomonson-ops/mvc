@@ -31,24 +31,26 @@ class Producto extends Conectar {
         return $stmt->rowCount();
     }
 
-    public function insert_producto($prod_nom) {
+    public function insert_producto($prod_nom,$prod_desc) {
         $conectar = parent::conexion();
         parent::set_names();
-        $sql = "INSERT INTO tm_producto (prod_nom, fech_crea, estado) VALUES (?, now(), 1)";
+        $sql = "INSERT INTO tm_producto (prod_nom, prod_desc, fech_crea, estado) VALUES (?, ?, now(), 1)";
         $stmt = $conectar->prepare($sql);
         $stmt->bindValue(1, $prod_nom);
+        $stmt->bindValue(2, $prod_desc);
         $stmt->execute();
         // Retorna último ID insertado
         return $conectar->lastInsertId();
     }
 
-    public function update_producto($prod_id, $prod_nom) {
+    public function update_producto($prod_id, $prod_nom, $prod_desc) {
         $conectar = parent::conexion();
         parent::set_names();
-        $sql = "UPDATE tm_producto SET prod_nom=?, fech_modi=now() WHERE prod_id = ?";
+        $sql = "UPDATE tm_producto SET prod_nom=?, prod_desc=?, fech_modi=now() WHERE prod_id = ?";
         $stmt = $conectar->prepare($sql);
         $stmt->bindValue(1, $prod_nom);
-        $stmt->bindValue(2, $prod_id);
+        $stmt->bindValue(2, $prod_desc);
+        $stmt->bindValue(3, $prod_id);
         $stmt->execute();
         return $stmt->rowCount();
     }
