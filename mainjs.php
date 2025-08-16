@@ -22,3 +22,8 @@
 
 <!-- <script src="/mvc/public/js/sweetaler.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+<script src="/mvc/public/vendor/lib/select2/js/select2.min.js"></script>
+
+
+
+

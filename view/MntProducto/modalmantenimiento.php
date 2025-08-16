@@ -7,8 +7,13 @@
                     <h4 class="modal-title" id="mdltitulo"></h4>
                 </div>
 
-                <div class="modal-body">
+                <div class="modal-body" >
                     <input type="hidden" id="prod_id" name="prod_id">
+
+                    <div class="form-group">
+                        <label class="form-label" for="cat_id">Categoria</label>
+                        <select class="form-control select2" id="cat_id" name="cat_id" data-placeholder="Seleccione" style="width: 100%"></select>
+                    </div>
                     
                     <div class="form-group">
                         <label class="form-label" for="prod_nom">Nombre</label>
@@ -19,6 +24,11 @@
                         <label class="form-label" for="prod_desc">Descripción</label>
                         <textarea rows="3" id="prod_desc" name="prod_desc" class="form-control" placeholder="Ingrese Descripción" require></textarea>
                         
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="prod_cant">Cantidad</label>
+                        <input type="number" class="form-control" id="prod_cant" name="prod_cant" placeholder="Ingrese Cantidad" required>
                     </div>
 
                 </div>

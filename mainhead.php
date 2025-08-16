@@ -20,6 +20,13 @@
     <link href="/mvc/public/css/perfect-scrollbar.min.css" rel="stylesheet">
     <link href="/mvc/public/css/jquery.switchButton.css" rel="stylesheet">
     <link href="/mvc/public/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!--<link href="/mvc/public/css/select2.min.css" rel="stylesheet"> -->
+    <link href="/mvc/public/vendor/lib/select2/css/select2.min.css" rel="stylesheet">
+    
+    
+    
+    
+
 
     <!-- Custom Styling -->
     <style>

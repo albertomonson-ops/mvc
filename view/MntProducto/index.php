@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <?php require_once("../../mainhead.php"); ?>
@@ -36,8 +36,10 @@
                             <table class="table table-bordered" id="producto_data" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
+                                        <th>Categoria</th>
                                         <th>Nombre</th>
                                         <th>Descripción</th>
+                                        <th>Cantidad</th>
                                         <th>Editar</th>
                                         <th>Eliminar</th>
                                     </tr>

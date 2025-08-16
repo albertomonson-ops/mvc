@@ -9,6 +9,28 @@ function init(){
 }
 
 $(document).ready(function() {
+
+    // Initialize Select2
+    $('#cat_id').select2({
+        dropdownParent: $("#modalmantenimiento")
+    });
+
+    // Load category options from PHP
+    $.post("../../controller/categoria.php?op=combo", function(data) {
+        $("#cat_id").html(data);
+
+        // Refresh Select2 so new options appear
+        $('#cat_id').trigger('change');
+    });
+
+    // Initialize DataTable
+    tabla = $('#producto_data').DataTable({
+
+    });
+});
+
+
+$(document).ready(function() {
     tabla = $('#producto_data').dataTable({
         "aProcessing": true, // Activamos el procesamiento del datatables
         "aServerSide": true, // Paginación y filtrado realizados por el servidor
@@ -84,19 +106,31 @@ function guardaryeditar(e){
     });
 }
 
-function editar(prod_id){
+function editar(prod_id) {
     $('#mdltitulo').html('Editar Registro');
 
-    $.post("../../controller/productos.php?op=mostrar",{prod_id : prod_id},function (data){
-        data = JSON.parse(data);
-        $('#prod_id').val(data.prod_id);
-        $('#prod_nom').val(data.prod_nom);
-        $('#prod_desc').val(data.prod_desc);
+    $.post("../../controller/productos.php?op=mostrar", { prod_id: prod_id }, function (data) {
+        try {
+            let json = JSON.parse(data);
+            if (json && json.prod_id) {
+                $('#prod_id').val(json.prod_id);
+                $('#cat_id').val(json.cat_id).trigger('change');
+                $('#prod_nom').val(json.prod_nom);
+                $('#prod_desc').val(json.prod_desc);
+                $('#prod_cant').val(json.prod_cant);
+                $('#modalmantenimiento').modal('show');
+            } else {
+                alert('No se encontró el producto.');
+            }
+        } catch (e) {
+            console.error("Error parsing JSON:", e);
+            alert('Error al obtener los datos del producto.');
+        }
+    }).fail(function () {
+        alert('Error en la comunicación con el servidor.');
     });
-    
-    $('#modalmantenimiento').modal('show');
-
 }
+
 
 function eliminar(prod_id) {
   Swal.fire({
@@ -129,6 +163,7 @@ $(document).on("click","#btnnuevo", function(){
     $('#mdltitulo').html('Nuevo Registro');
     $('#producto_form')[0].reset();
     $('#prod_id').val('');
+    $('#cat_id').val('').trigger('change');
     $('#modalmantenimiento').modal('show');
 });
 
